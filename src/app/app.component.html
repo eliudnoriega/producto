@@ -1,6 +1,8 @@
 <mat-sidenav-container class="container">
   <mat-sidenav opened mode="side">
     <app-custon-sinedav></app-custon-sinedav>
+    <button (click)="logout()">Logout</button>
   </mat-sidenav>
-  <app-products fxFlex></app-products>
+  <app-login *ngIf="!currentUser"></app-login>
+  <app-products fxFlex *ngIf="currentUser"></app-products>
 </mat-sidenav-container>

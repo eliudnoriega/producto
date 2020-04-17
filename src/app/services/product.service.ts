@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Product} from '../models/product';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {UserService} from './user.service';
 
 @Injectable()
 export class ProductService {
@@ -11,7 +12,10 @@ export class ProductService {
   selectedProduct: Product = new Product();
 
 
-  constructor(private firebase: AngularFireDatabase) {
+  constructor(
+    private firebase: AngularFireDatabase,
+    private auth: UserService
+  ) {
   }
 
   getProducts(): AngularFireList<any> {
@@ -23,7 +27,8 @@ export class ProductService {
       name: product.name,
       category: product.category,
       location: product.location,
-      price: product.price
+      price: product.price,
+      user: this.auth.currentUser.email
     });
   }
 
@@ -32,7 +37,8 @@ export class ProductService {
       name: product.name,
       category: product.category,
       location: product.location,
-      price: product.price
+      price: product.price,
+      user: this.auth.currentUser.email
     });
   }
 

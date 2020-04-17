@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AngularFireModule} from 'angularfire2/';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {ProductsComponent} from './components/products/products.component';
 import {ProductsListComponent} from './components/products/products-list/products-list.component';
@@ -34,6 +35,7 @@ import {AgGridModule} from '@ag-grid-community/angular';
 import {LayoutModule} from '@angular/cdk/layout';
 import {AgGridComponentModule} from '@components/ag-grid/ag-grid-component.module';
 import {AgGridIconButtonActionComponent} from '@components/ag-grid/ag-grid-icon-button-action.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import {AgGridIconButtonActionComponent} from '@components/ag-grid/ag-grid-icon-
     ProductsComponent,
     ProductsListComponent,
     ProductComponent,
-    CustonSinedavComponent
+    CustonSinedavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import {AgGridIconButtonActionComponent} from '@components/ag-grid/ag-grid-icon-
     MatButtonModule,
     MatSnackBarModule,
     AgGridModule.withComponents([]),
-    AgGridComponentModule
+    AgGridComponentModule,
+    AngularFireAuthModule
   ],
   providers: [
     ProductService
